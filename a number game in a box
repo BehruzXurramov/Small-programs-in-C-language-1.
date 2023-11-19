@@ -1,0 +1,80 @@
+
+//                           << QUTIDA RAQAM >>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int main() {
+    int n, r1,r2, c, son,variant,t;
+        cout<<"     \"QUTIDA RAQAM\""<<endl;
+        cout<<"O'yinchilar sonini kiriting\n->|";cin>>n;
+    string name[n];
+        int m[n], j[n];
+            for(int i=0;i<n;i++)
+            m[i]=0;
+
+        cout<<"o'yinchilar nomini kiriting"<<endl;
+
+    for(int i=0;i<n;i++){
+        cout<<i+1<<" chi o'yinchi->|";cin>>name[i];
+    }
+        cout<<"Savol variantlarini kiriting\n->|";cin>>variant;
+    metka:
+        cout<<"   Qaysi turda o'ynamoqchisiz\n"<<"Navbat bilan -> 1\nBirgalikda -> 2\nkiriting->|";
+    cin>>t;
+    cout<<endl;
+
+    if(t==1) {
+        for (;;) {
+            for (int i = 0; i < n; i++) {
+                srand(time(0));
+                r1 = rand() % 100;
+                r2 = r1 - variant + 1;
+
+                c = (r2 + rand() % (r1 - r2 + 1));
+                cout << name[i] << "ni navbati\nQutida " << r2 << " va " << r1<< " sonlari orasida son bor\nBu qaysi son->|";
+                cin >> son;
+                if (son == c) {
+                    m[i] += 1;
+                    cout << "Javob to'g'ri\t\t[ " << name[i] << "-" << m[i] << " ball ]\n" << endl;
+                }
+                else {
+                    m[i] += 0;
+                    cout << "Javob noto'g'ri " << "bu son [" << c << "] edi\t[ " << name[i] << "-" << m[i]
+                         << " ball ]\n" << endl;
+                }
+            }
+        }
+    }
+    else if(t==2){
+        for (;;) {
+            for (int i = 0; i < n; i++) {
+                srand(time(0));
+                r1 = rand() % 100;
+                r2 = r1 - variant + 1;
+
+                c = (r2 + rand() % (r1 - r2 + 1));
+                cout <<"Qutida " << r2 << " va " << r1<< " sonlari orasida son bor\nBu qaysi son->|"<<endl;
+                for(int i=0;i<n;i++){
+                    cout<<name[i]<<"ni javobi->|";cin>>j[i];
+                }
+                for(int i=0;i<n;i++){
+                    if(j[i]==c){
+                        m[i]+=1;
+                        cout<<name[i]<<" - to'g'ri     ["<<m[i]<<"-ball]"<<endl;
+                    }
+                    else if(j[i]!=c){
+                        m[i]+=0;
+                        cout<<name[i]<<" - noto'g'ri     ["<<m[i]<<"-ball]"<<endl;
+                    }
+                }
+                cout<<"Bu raqam "<<c<<" edi\n"<<endl;
+
+                }
+            }
+        }
+    else{
+        cout<<"iltimos faqatgina [1] yoki [2] buyruqlarini kiriting"<<endl;goto metka;
+    }
+    return 0;
+}
