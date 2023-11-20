@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main(){
+    badge:
+    string password, login;
+    cout<<"Loginni kiriting\n->| "; cin>>login;
+    if(login=="X")
+        goto b;
+    cout<<"Parolni kiriting\n->| "; cin>>password;
+    if(login=="behruz"&&password=="be5755") {
+        b:
+        cout << "Dastur ishga tushirildi\n" << endl;
+
+    }
+    else {
+        cout << "Xatolik qayta urinib ko'ring" << endl;
+        goto badge;
+    }
+    return 0;
+}
